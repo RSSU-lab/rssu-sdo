@@ -1,6 +1,7 @@
-Vue.component('main-app', {
+Vue.component('app-main', {
     template: `
     <div v-on:click="textClick">
+        <app-header></app-header>
         {{ message }}
     </div>
     `,
