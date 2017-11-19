@@ -42,6 +42,7 @@
     }
     .navbar {
       .nav-list {
+        text-align: center;
         float: left;
         width: 75%;
         margin: 0;
