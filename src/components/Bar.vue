@@ -124,8 +124,7 @@
   .on-bottom {
     @extend .on;
     z-index: 4;
-    top: calc(100% - 35px);
-    // top: calc(100% - $label-height); oh shit
+    top: calc(100% - #{$label-height});
   }
 
   .pop-enter-active, .pop-leave-active {
@@ -133,7 +132,6 @@
   }
 
   .pop-enter, .pop-leave-to {
-    bottom: calc(-190px - 35px);
-    // bottom: calc(-190px - $label-height); not working??
+    bottom: calc(-190px - #{$label-height});
   }
 </style>
