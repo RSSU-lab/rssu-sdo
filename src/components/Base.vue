@@ -1,6 +1,6 @@
 <template>
   <div class="base-wrapper">
-    
+
     <app-bar></app-bar>
   </div>
 </template>
@@ -24,13 +24,11 @@
 <style scoped>
   .base-wrapper {
     position: absolute;
-  
+
     left: 0px;
     right: 0px;
-  
+
     top: 6rem;
     bottom: 0px;
-    
-    background-color: rgba(0, 0, 0, 0.1);
   }
 </style>
