@@ -26,16 +26,16 @@
     name: 'AppBar',
     data () {
       return {
-        show: true,
+        show: false,
         items: [
-          "Tinky-Winky",
-          "Dipsy",
-          "Laa-Laa",
-          "Po",
-          "Tinky-Winky",
-          "Dipsy",
-          "Laa-Laa",
-          "Po",
+          'Tinky-Winky',
+          'Dipsy',
+          'Laa-Laa',
+          'Po',
+          'Tinky-Winky',
+          'Dipsy',
+          'Laa-Laa',
+          'Po'
         ]
       }
     },

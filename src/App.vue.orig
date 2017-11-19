@@ -21,9 +21,13 @@ export default {
   box-sizing: border-box;
 }
 body {
-  margin: 0;
+<<<<<<< HEAD
+  margin: 0;  
   overflow: hidden;
+=======
+  margin: 0;
   background-color: rgba(0, 0, 0, 0.1);
+>>>>>>> e7415fd6f3d013ae44e73341797f8420f7d6c60f
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
