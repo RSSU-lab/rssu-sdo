@@ -1,11 +1,11 @@
 <template>
   <div class="widget">
     <div class="head">
-      <div class="title"> {{ title }} </div>
+      <div class="title"> {{ widget.title }} </div>
       <div class="btn close">×</div>
     </div>
     <div class="body">
-      {{ name }}
+      <component :is="widget"></component>
     </div>
   </div>
 </template>
@@ -13,12 +13,11 @@
 <script>
   export default {
     name: 'AppWidget',
-    props: {
-      name // this is just test for props
-    },
+    props: [
+      'widget'
+    ],
     data () {
       return {
-        title: 'windows98'
       }
     },
     methods: {
@@ -29,15 +28,17 @@
 
 <style lang="scss" scoped>
 
-  $hheight: 13px;
+  $hheight: 15px;
   $bcolor: rgb(100,50,200);
 
   .widget {
     height: 100%;
     border: $bcolor 1px solid;
     border-radius: 2px;
-    background-color: white;
+    background-color: lightgrey;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+    font-family: sans-serif;
 
     .head {
       position: relative;
@@ -52,7 +53,7 @@
       
       .title {
         width: calc(100% - #{$hheight});
-        font-size: $hheight;
+        font-size: $hheight - 2px;
         padding-left: 5px;
 
         cursor: grab;
@@ -67,9 +68,11 @@
         width: $hheight - $m * 2;
         height: $hheight - $m * 2;
         text-align: center;
-        line-height: $hheight - $m * 2;
+        line-height: $hheight - 1px - $m * 2;
         margin: $m;
         border-radius: 50%;
+
+        font-size: $hheight - 3px;
 
         cursor: pointer;
       }
@@ -80,7 +83,9 @@
     }
 
     .body {
-      padding: 10px;
+      width: 100%;
+      height: calc(100% - #{$hheight});
+      padding: 8px;
     }
   }
 </style>

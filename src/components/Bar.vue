@@ -8,7 +8,7 @@
 
       <div class="container">
         <div class="item-wrapper" v-for="item in items" v-bind:key="item">
-          <app-widget v-bind:name="item"></app-widget>
+          <app-widget :widget="item"></app-widget>
         </div>
       </div>
     </div>
@@ -21,6 +21,9 @@
 
 <script>
   import AppWidget from '@/components/Widget'
+  import WEmpty from './widgets/WEmpty'
+  import WText from './widgets/WText'
+  import WImage from './widgets/WImage'
 
   export default {
     name: 'AppBar',
@@ -31,14 +34,15 @@
       return {
         show: false,
         items: [
-          'Tinky-Winky',
-          'Dipsy',
-          'Laa-Laa',
-          'Po',
-          'Tinky-Winky',
-          'Dipsy',
-          'Laa-Laa',
-          'Po'
+          WText,
+          WImage,
+          WEmpty,
+          WText,
+          WImage,
+          WEmpty,
+          WText,
+          WImage,
+          WEmpty
         ]
       }
     },
@@ -84,6 +88,7 @@
 
     .item-wrapper {
       display: inline-block;
+      vertical-align: top;
       width: 190px;
       height: 100%;
       padding: 10px;
