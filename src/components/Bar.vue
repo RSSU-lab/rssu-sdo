@@ -8,9 +8,7 @@
 
       <div class="container">
         <div class="item-wrapper" v-for="item in items" v-bind:key="item">
-          <div class="item">
-            {{ item }}
-          </div>
+          <app-widget v-bind:name="item"></app-widget>
         </div>
       </div>
     </div>
@@ -22,8 +20,13 @@
 </template>
 
 <script>
+  import AppWidget from '@/components/Widget'
+
   export default {
     name: 'AppBar',
+    components: {
+      AppWidget
+    },
     data () {
       return {
         show: false,
@@ -77,20 +80,13 @@
 
     white-space: nowrap;
     overflow-x: scroll;
+    overflow-y: hidden;
 
     .item-wrapper {
       display: inline-block;
       width: 190px;
       height: 100%;
       padding: 10px;
-
-      .item {
-        height: 100%;
-        padding: 10px;
-        border: black 2px solid;
-        border-radius: 10px;
-        background-color: white;
-      }
     }
   }
 
