@@ -32,11 +32,12 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../variables.scss";
+
   .header-wrapper {
     height: 6rem;
     font-size: 0.95rem;
-    /* TODO: select correct color */
-    background-color: #7d97ad;
+    background-color: $color1;
 
     .logo {
       padding: 1rem;

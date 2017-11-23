@@ -7,9 +7,11 @@
       </div>
 
       <div class="container">
-        <div class="item-wrapper" v-for="item in items" v-bind:key="item">
-          <app-widget :widget="item"></app-widget>
-        </div>
+        <draggable v-model="items" :options="{group: { name: 'widgets',  pull: 'clone', put: false}}">
+          <div class="item-wrapper" v-for="item in items" v-bind:key="item">
+            <app-widget :widget="item"></app-widget>
+          </div>
+        </draggable>
       </div>
     </div>
   </transition>
@@ -20,6 +22,8 @@
 </template>
 
 <script>
+  import draggable from 'vuedraggable'
+
   import AppWidget from '@/components/Widget'
   import WEmpty from './widgets/WEmpty'
   import WText from './widgets/WText'
@@ -28,7 +32,8 @@
   export default {
     name: 'AppBar',
     components: {
-      AppWidget
+      AppWidget,
+      draggable
     },
     data () {
       return {
@@ -61,13 +66,13 @@
 
   .bar-wrapper {
     position: absolute;
-  
+
     width: 90%;
     height: 190px;
-    
+
     left: 5%;
     bottom: 0px;
-    
+
     border-radius: 10px 10px 0px 0px;
     background-color: rgb(200, 200, 200);
 
@@ -80,10 +85,9 @@
   .container {
     position: relative;
     height: 100%;
-    top: -$label-height;
 
     white-space: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
 
     .item-wrapper {
@@ -112,8 +116,9 @@
   }
 
   .on {
-    position: relative;
+    position: absolute;
     text-align: center;
+    left: calc(50% - 45px);
   }
 
   .on-top {
@@ -125,7 +130,7 @@
   .on-bottom {
     @extend .on;
     z-index: 4;
-    top: calc(100% - #{$label-height});
+    bottom: 0;
   }
 
   .pop-enter-active, .pop-leave-active {

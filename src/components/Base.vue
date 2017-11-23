@@ -1,16 +1,18 @@
 <template>
   <div class="base-wrapper">
-
+    <page-content></page-content>
     <app-bar></app-bar>
   </div>
 </template>
 
 <script>
   import AppBar from '@/components/Bar.vue'
+  import PageContent from './PageContent.vue'
 
   export default {
     name: 'AppBase',
     components: {
+      PageContent,
       AppBar
     },
     data () {
@@ -21,7 +23,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .base-wrapper {
     position: absolute;
 
