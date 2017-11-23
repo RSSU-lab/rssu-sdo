@@ -1,23 +1,23 @@
 <template>
     <div class="content-area">
       <div class="column">
-        <draggable :list="items" :options="{group: 'widgets'}">
-          <div class="item-wrapper" v-for="item in items">
-            <app-widget :widget="item"></app-widget>
+        <draggable :list="items1" :options="{group: 'widgets'}">
+          <div class="item-wrapper" v-for="item in items1">
+            <app-widget :widget="item" :container="items1"></app-widget>
           </div>
         </draggable>
       </div>
       <div class="column">
         <draggable :list="items2" :options="{group: 'widgets'}">
           <div class="item-wrapper" v-for="item in items2">
-            <app-widget :widget="item"></app-widget>
+            <app-widget :widget="item" :container="items2"></app-widget>
           </div>
         </draggable>
       </div>
       <div class="column">
         <draggable :list="items3" :options="{group: 'widgets'}">
           <div class="item-wrapper" v-for="item in items3">
-            <app-widget :widget="item"></app-widget>
+            <app-widget :widget="item" :container="items3"></app-widget>
           </div>
         </draggable>
       </div>
@@ -40,7 +40,7 @@
     },
     data () {
       return {
-        items: [
+        items1: [
           WEmpty
         ],
         items2: [
@@ -64,6 +64,10 @@
     .column {
       width: 33.33%;
       height: 100%;
+
+      .item-wrapper {
+        padding: 10px;
+      }
 
       &:not(:last-child) {
         border-right: 1px solid $color1;

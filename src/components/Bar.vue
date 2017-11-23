@@ -7,7 +7,7 @@
       </div>
 
       <div class="container">
-        <draggable v-model="items" :options="{group: { name: 'widgets',  pull: 'clone', put: false}}">
+        <draggable v-model="items" :options="{group: {name: 'widgets',  pull: 'clone', put: false}}">
           <div class="item-wrapper" v-for="item in items" v-bind:key="item">
             <app-widget :widget="item"></app-widget>
           </div>

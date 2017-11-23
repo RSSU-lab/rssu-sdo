@@ -2,7 +2,9 @@
   <div class="widget">
     <div class="head">
       <div class="title"> {{ widget.title }} </div>
-      <div class="btn close">×</div>
+      <div class="btn close" 
+           v-if="container" 
+           v-on:click="remove()">×</div>
     </div>
     <div class="body">
       <component :is="widget"></component>
@@ -14,14 +16,18 @@
   export default {
     name: 'AppWidget',
     props: [
-      'widget'
+      'widget',
+      'container'
     ],
     data () {
       return {
       }
     },
     methods: {
-
+      remove () {
+        this.container.splice(
+          this.container.indexOf(this.widget), 1)
+      }
     }
   }
 </script>
