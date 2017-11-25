@@ -2,8 +2,8 @@
   <transition v-if="show" name="pop">
     <div class="bar-wrapper">
       <div class="on-top">
-        <div class="label-button top" v-on:click="toggle">Cancel</div>
-        <div class="label-button top" v-on:click="toggle">Save</div>
+        <div class="label-button top" v-on:click="cancel">Cancel</div>
+        <div class="label-button top" v-on:click="save">Save</div>
       </div>
 
       <div class="container">
@@ -17,7 +17,7 @@
   </transition>
 
   <div v-else class="on-bottom">
-    <div class="label-button down" v-on:click="toggle">Edit</div>
+    <div class="label-button down" v-on:click="open">Edit</div>
   </div>
 </template>
 
@@ -52,8 +52,17 @@
       }
     },
     methods: {
-      toggle () {
-        this.show = !this.show
+      open () {
+        this.show = true
+        this.$emit('open')
+      },
+      cancel () {
+        this.show = false
+        this.$emit('close', 'cancel')
+      },
+      save () {
+        this.show = false
+        this.$emit('close', 'save')
       }
     }
   }
