@@ -2,12 +2,13 @@
     <div class="content-area">
       <div class="column" v-for="column in columns" v-bind:key="column">
         <draggable :list="column" 
-                   :options="{group: 'widgets', 
-                              disabled: !isEditable, 
+                   :options="{group: 'widgets',
+                              disabled: !isEditable,
+                              animation: 300,
                               handle: '.head'}">
           <div class="item-wrapper" v-for="item in column" v-bind:key="item">
-            <app-widget :widget="item" 
-                        :container="column" 
+            <app-widget :widget="item"
+                        :container="column"
                         :isEditable="isEditable"></app-widget>
           </div>
         </draggable>
