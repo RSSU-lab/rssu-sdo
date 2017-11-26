@@ -3,7 +3,7 @@
       <div v-for="column in columns" class="column">
         <draggable :list="column" :options="{group: 'widgets', disabled: !isEditable}">
           <div class="item-wrapper" v-for="item in column">
-            <app-widget :widget="item" :container="column"></app-widget>
+            <app-widget :widget="item" :container="column" :isEditable="isEditable"></app-widget>
           </div>
         </draggable>
       </div>

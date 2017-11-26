@@ -1,9 +1,9 @@
 <template>
-  <div class="widget">
-    <div class="head">
+  <div class="widget" :class="{'editable': isEditable}">
+    <div v-if="isEditable" class="head">
       <div class="title"> {{ widget.title }} </div>
-      <div class="btn close" 
-           v-if="container" 
+      <div class="btn close"
+           v-if="container"
            v-on:click="remove()">×</div>
     </div>
     <div class="body">
@@ -17,7 +17,8 @@
     name: 'AppWidget',
     props: [
       'widget',
-      'container'
+      'container',
+      'isEditable'
     ],
     data () {
       return {
@@ -38,6 +39,7 @@
   $bcolor: rgb(100,50,200);
 
   .widget {
+    position: relative;
     height: 100%;
     border: $bcolor 1px solid;
     border-radius: 2px;
@@ -47,7 +49,8 @@
     font-family: sans-serif;
 
     .head {
-      position: relative;
+      position: absolute;
+      top: 0;
       width: 100%;
       height: $hheight;
 
@@ -56,7 +59,7 @@
       border-bottom: $bcolor 1px solid;
 
       white-space: nowrap;
-      
+
       .title {
         width: calc(100% - #{$hheight});
         font-size: $hheight - 2px;
@@ -91,6 +94,7 @@
     .body {
       width: 100%;
       height: calc(100% - #{$hheight});
+      min-height: 4rem;
       padding: 8px;
     }
   }

@@ -1,6 +1,5 @@
 <template>
   <img class="image-area" :src="img">
-  </img>
 </template>
 
 <script>
