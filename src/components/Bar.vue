@@ -17,12 +17,17 @@
   </transition>
 
   <div v-else class="on-bottom">
-    <div class="label-button down" v-on:click="open">Edit</div>
+    <div class="label-button down" v-on:click="open">
+      <span>Edit</span>
+      <icon name="pencil"></icon>
+    </div>
   </div>
 </template>
 
 <script>
   import draggable from 'vuedraggable'
+
+  import icon from 'vue-awesome/components/Icon'
 
   import AppWidget from '@/components/Widget'
   import WEmpty from './widgets/WEmpty'
@@ -33,7 +38,8 @@
     name: 'AppBar',
     components: {
       AppWidget,
-      draggable
+      draggable,
+      icon
     },
     data () {
       return {
@@ -122,6 +128,10 @@
     background-color: $bl-color;
 
     cursor: pointer;
+
+    span {
+      padding: 0.4rem;
+    }
   }
 
   .on {

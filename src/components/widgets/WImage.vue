@@ -21,7 +21,7 @@
   .image-area {
     max-width: 100%;
     max-height: 100%;
-    border: gray 1px solid;
+    //border: gray 1px solid;
     resize: none;
   }
 </style>

@@ -6,27 +6,30 @@
 </template>
 
 <script>
-import AppHeader from './components/Header.vue'
+  // Todo: only icons which are used
+  import 'vue-awesome/icons'
 
-export default {
-  name: 'app',
-  components: {
-    AppHeader
+  import AppHeader from './components/Header.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      AppHeader
+    }
   }
-}
 </script>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-}
+<style lang="scss">
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+  }
 </style>

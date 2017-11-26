@@ -1,7 +1,7 @@
 <template>
   <div class="widget" :class="{'editable': isEditable}">
     <div v-if="isEditable" class="head">
-      <div class="title"> {{ widget.title }} </div>
+      <!--<div class="title"> {{ widget.title }} </div>-->
       <div class="btn close"
            v-if="container"
            v-on:click="remove()">×</div>
@@ -34,17 +34,19 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../variables.scss";
 
-  $hheight: 15px;
-  $bcolor: rgb(100,50,200);
+  $hheight: 24px;
+  $headerbgcolor: transparentize($color1, 0.75);
 
   .widget {
     position: relative;
     height: 100%;
-    border: $bcolor 1px solid;
+    //border: $headerbgcolor 1px solid;
     border-radius: 2px;
     background-color: lightgrey;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
 
     font-family: sans-serif;
 
@@ -54,15 +56,16 @@
       width: 100%;
       height: $hheight;
 
-      color: white;
-      background-color: $bcolor;
-      border-bottom: $bcolor 1px solid;
+      color: #000;
+      background-color: $headerbgcolor;
+      //border-bottom: $headerbgcolor 1px solid;
 
       white-space: nowrap;
 
       .title {
         width: calc(100% - #{$hheight});
-        font-size: $hheight - 2px;
+        font-size: 13px;
+        line-height: $hheight;
         padding-left: 5px;
 
         cursor: grab;
@@ -79,7 +82,7 @@
         text-align: center;
         line-height: $hheight - 1px - $m * 2;
         margin: $m;
-        border-radius: 50%;
+        //border-radius: 50%;
 
         font-size: $hheight - 3px;
 
@@ -87,15 +90,15 @@
       }
 
       .close {
-        background-color: rgba(255, 50, 50, 0.7);
+        //background-color: rgba(255, 50, 50, 0.7);
       }
     }
 
     .body {
       width: 100%;
-      height: calc(100% - #{$hheight});
+      //height: calc(100% - #{$hheight});
       min-height: 4rem;
-      padding: 8px;
+      //padding: 8px;
     }
   }
 </style>
