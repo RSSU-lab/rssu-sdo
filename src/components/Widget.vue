@@ -4,7 +4,7 @@
       <div class="head" v-if="isEditable">
         <div class="title">
           <icon name="bars" class="icon"></icon>
-          {{ widget.title }} 
+          {{ widget.title }}
         </div>
         <div class="btn"
              v-if="container"
@@ -67,7 +67,7 @@
 
       z-index: 5;
 
-      color: #000;
+      color: #fff;
       background-color: $headerbgcolor;
       //border-bottom: $headerbgcolor 1px solid;
 

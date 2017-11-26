@@ -16,16 +16,40 @@
         </li>
       </ul>
     </div>
-    <button class="login-btn">Login</button>
+    <div class="right-area">
+      <button v-if="!isLoggedIn" class="login-btn" v-on:click="login">Login</button>
+      <div v-if="isLoggedIn" class="avatar">
+        <icon name="user"></icon>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import authenticationService from '@/services/authenticationService.js'
+
+  import icon from 'vue-awesome/components/Icon'
+
   export default {
     name: 'AppHeader',
+    components: {
+      icon
+    },
     data () {
       return {
+        isLoggedIn: false,
         navItems: ['page1', 'page2', 'page3']
+      }
+    },
+    methods: {
+      login () {
+        authenticationService.login()
+          .then(() => {
+            this.isLoggedIn = true
+          })
+      },
+      logout () {
+        this.isLoggedIn = false
       }
     }
   }
@@ -38,6 +62,7 @@
     height: 6rem;
     font-size: 0.95rem;
     background-color: $color1;
+    color: #fff;
 
     .logo {
       padding: 1rem;
@@ -61,7 +86,6 @@
         li {
           display: inline-block;
           padding: 0 1.2rem;
-          color: #fff;
           line-height: 6rem;
           cursor: pointer;
 
@@ -72,17 +96,30 @@
         }
       }
     }
-    .login-btn {
+    .right-area {
       float: right;
-      height: 3rem;
       margin: 1.5rem;
-      padding: 0 2rem;
-      font-size: inherit;
-      border: 0;
-      border-radius: 0.4rem;
-      color: #000;
-      background-color: #fff;
-      cursor: pointer;
+
+      .login-btn {
+        height: 3rem;
+        padding: 0 2rem;
+        font-size: inherit;
+        border: none;
+        border-radius: 0.4rem;
+        color: #000;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      .avatar {
+        padding: 0.5rem;
+        border-radius: 50%;
+        border: 1px solid #fff;
+
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
     }
   }
 </style>
