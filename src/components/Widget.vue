@@ -38,9 +38,6 @@
       remove () {
         this.container.splice(
           this.container.indexOf(this.widget), 1)
-      },
-      isPlacedOnPage () {
-        return !!this.container
       }
     }
   }
@@ -59,10 +56,6 @@
     border-radius: 2px;
     background-color: lightgrey;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-
-    &.editable, &:not(.page-widget) {
-      cursor: grab;
-    }
 
     font-family: sans-serif;
 
