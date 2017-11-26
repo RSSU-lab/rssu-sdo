@@ -57,6 +57,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../variables.scss";
+
   .base-wrapper {
     position: absolute;
 
@@ -65,5 +67,7 @@
 
     top: 6rem;
     bottom: 0px;
+
+    background-color: $basebg;
   }
 </style>

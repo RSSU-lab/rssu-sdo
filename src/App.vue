@@ -26,10 +26,8 @@
   body {
     margin: 0;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.1);
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    color: #2c3e50;
   }
 </style>

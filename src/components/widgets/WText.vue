@@ -1,8 +1,10 @@
 <template>
-  <textarea class="text-area" v-model="text" 
-            :class="{ readonly: !isEditable }"
-            :readonly="!isEditable">
-  </textarea>
+  <div class="wrapper">
+    <textarea class="text-area" v-model="text" 
+              :class="{ readonly: !isEditable }"
+              :readonly="!isEditable">
+    </textarea>
+  </div>
 </template>
 
 <script>
@@ -24,14 +26,21 @@
 </script>
 
 <style lang="scss" scoped>
-  .text-area {
+  .wrapper {
     width: 100%;
     height: 100%;
-    resize: none;
+  }
+
+  .text-area {
     border: none;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
   }
 
   .readonly {
     background-color: transparent;
+    resize: none;
   }
 </style>
