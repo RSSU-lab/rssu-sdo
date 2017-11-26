@@ -72,7 +72,7 @@
 
       z-index: 5;
 
-      color: #000;
+      color: #fff;
       background-color: $headerbgcolor;
       //border-bottom: $headerbgcolor 1px solid;
 
