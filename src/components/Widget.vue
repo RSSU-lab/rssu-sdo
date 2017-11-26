@@ -1,5 +1,5 @@
 <template>
-  <div class="widget" :class="{'editable': isEditable}">
+  <div class="widget" :class="{'editable': isEditable, 'page-widget': isPlacedOnPage()}">
     <div v-if="isEditable" class="head">
       <!--<div class="title"> {{ widget.title }} </div>-->
       <div class="btn close"
@@ -28,6 +28,9 @@
       remove () {
         this.container.splice(
           this.container.indexOf(this.widget), 1)
+      },
+      isPlacedOnPage () {
+        return !!this.container
       }
     }
   }
@@ -47,6 +50,9 @@
     background-color: lightgrey;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 
+    &.editable, &:not(.page-widget) {
+      cursor: grab;
+    }
 
     font-family: sans-serif;
 
@@ -67,8 +73,6 @@
         font-size: 13px;
         line-height: $hheight;
         padding-left: 5px;
-
-        cursor: grab;
       }
 
       $m: 1px;

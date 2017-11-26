@@ -6,8 +6,10 @@
 </template>
 
 <script>
-  import AppBar from '@/components/Bar.vue'
-  import PageContent from './PageContent.vue'
+  // import authenticationService from '@/services/authenticationService.js'
+
+  import AppBar from './Bar'
+  import PageContent from './PageContent'
   import WEmpty from './widgets/WEmpty'
   import WText from './widgets/WText'
   import WImage from './widgets/WImage'
@@ -26,6 +28,7 @@
     },
     data () {
       return {
+        isLoggedIn: false,
         isEditable: false,
         pageWidgets: this.copyWidgets(defaultWidgets),
         savedWidgets: this.copyWidgets(defaultWidgets)
