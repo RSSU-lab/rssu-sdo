@@ -33,6 +33,7 @@
   import WEmpty from './widgets/WEmpty'
   import WText from './widgets/WText'
   import WImage from './widgets/WImage'
+  import WPoll from './widgets/WPoll'
 
   export default {
     name: 'AppBar',
@@ -48,12 +49,7 @@
           WText,
           WImage,
           WEmpty,
-          WText,
-          WImage,
-          WEmpty,
-          WText,
-          WImage,
-          WEmpty
+          WPoll
         ]
       }
     },

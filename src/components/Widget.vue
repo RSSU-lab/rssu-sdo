@@ -1,8 +1,11 @@
 <template>
   <div class="widget" :class="{'editable': isEditable, 'page-widget': isPlacedOnPage()}">
     <div v-if="isEditable" class="head">
-      <!--<div class="title"> {{ widget.title }} </div>-->
-      <div class="btn close"
+      <div class="title">
+        <icon name="bars" class="icon"></icon>
+        {{ widget.title }}
+      </div>
+      <div class="btn"
            v-if="container"
            v-on:click="remove()">×</div>
     </div>
@@ -13,8 +16,13 @@
 </template>
 
 <script>
+  import icon from 'vue-awesome/components/Icon'
+
   export default {
     name: 'AppWidget',
+    components: {
+      icon
+    },
     props: [
       'widget',
       'container',
@@ -39,8 +47,8 @@
 <style lang="scss" scoped>
   @import "../variables.scss";
 
-  $hheight: 24px;
-  $headerbgcolor: transparentize($color1, 0.75);
+  $hheight: 20px;
+  $headerbgcolor: $color1;
 
   .widget {
     position: relative;
@@ -58,9 +66,11 @@
 
     .head {
       position: absolute;
-      top: 0;
+      top: -$hheight;
       width: 100%;
       height: $hheight;
+
+      z-index: 5;
 
       color: #000;
       background-color: $headerbgcolor;
@@ -73,6 +83,14 @@
         font-size: 13px;
         line-height: $hheight;
         padding-left: 5px;
+
+        cursor: grab;
+
+        .icon {
+          opacity: 0.5;
+          vertical-align: sub;
+          height: 15px;
+        }
       }
 
       $m: 1px;
@@ -91,10 +109,6 @@
         font-size: $hheight - 3px;
 
         cursor: pointer;
-      }
-
-      .close {
-        //background-color: rgba(255, 50, 50, 0.7);
       }
     }
 

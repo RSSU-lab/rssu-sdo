@@ -1,9 +1,14 @@
 <template>
     <div class="content-area">
-      <div v-for="column in columns" class="column">
-        <draggable :list="column" :options="{group: 'widgets', disabled: !isEditable}">
-          <div class="item-wrapper" v-for="item in column">
-            <app-widget :widget="item" :container="column" :isEditable="isEditable"></app-widget>
+      <div class="column" v-for="column in columns" v-bind:key="column">
+        <draggable :list="column" 
+                   :options="{group: 'widgets', 
+                              disabled: !isEditable, 
+                              handle: '.head'}">
+          <div class="item-wrapper" v-for="item in column" v-bind:key="item">
+            <app-widget :widget="item" 
+                        :container="column" 
+                        :isEditable="isEditable"></app-widget>
           </div>
         </draggable>
       </div>
@@ -39,9 +44,10 @@
     .column {
       width: 33.33%;
       height: 100%;
+      padding-top: 15px;
 
       .item-wrapper {
-        padding: 10px;
+        padding: 15px;
       }
 
       > div {

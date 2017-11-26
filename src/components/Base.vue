@@ -13,9 +13,10 @@
   import WEmpty from './widgets/WEmpty'
   import WText from './widgets/WText'
   import WImage from './widgets/WImage'
+  import WPoll from './widgets/WPoll'
 
   const defaultWidgets = [
-    [WEmpty],
+    [WEmpty, WPoll],
     [WText, WImage],
     []
   ]
