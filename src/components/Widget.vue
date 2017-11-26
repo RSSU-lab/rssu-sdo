@@ -1,14 +1,16 @@
 <template>
   <div class="widget" :class="{'editable': isEditable}">
-    <div v-if="isEditable" class="head">
-      <div class="title">
-        <icon name="bars" class="icon"></icon>
-        {{ widget.title }} 
+    <transition name="fade">
+      <div class="head" v-if="isEditable">
+        <div class="title">
+          <icon name="bars" class="icon"></icon>
+          {{ widget.title }} 
+        </div>
+        <div class="btn"
+             v-if="container"
+             v-on:click="remove()">×</div>
       </div>
-      <div class="btn"
-           v-if="container"
-           v-on:click="remove()">×</div>
-    </div>
+    </transition>
     <div class="body">
       <component :is="widget"></component>
     </div>
@@ -110,6 +112,14 @@
       //height: calc(100% - #{$hheight});
       min-height: 4rem;
       //padding: 8px;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s;
+    }
+
+    .fade-enter, .fade-leave-to {
+      opacity: 0.0;
     }
   }
 </style>
