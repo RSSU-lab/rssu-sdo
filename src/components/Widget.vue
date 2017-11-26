@@ -12,7 +12,7 @@
       </div>
     </transition>
     <div class="body">
-      <component :is="widget"></component>
+      <component :is="widget" :isEditable="isEditable"></component>
     </div>
   </div>
 </template>
